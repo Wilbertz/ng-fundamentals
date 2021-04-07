@@ -31,7 +31,7 @@ import { IEvent } from '../events/shared/index'
 })
 export class EventThumbnailComponent {
     @Input()
-    event: IEvent | undefined;
+    event!: IEvent;
 
     getStartTimeStyle() : any {
         if (this.event && this.event.time === '8:00 am')
