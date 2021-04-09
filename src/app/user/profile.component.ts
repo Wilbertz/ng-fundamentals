@@ -5,30 +5,30 @@ import { AuthService } from './auth.service'
 
 @Component({
     templateUrl: './profile.component.html'
-  })
-  export class ProfileComponent implements OnInit {   
-    
-    profileForm!: FormGroup;
+})
+export class ProfileComponent implements OnInit {   
+  
+  profileForm!: FormGroup;
 
-    constructor(private authService: AuthService, private router: Router) {    
-    }
-
-    ngOnInit() {
-      let firstName = new FormControl(this.authService.currentUser.firstName);
-      let lastName = new FormControl(this.authService.currentUser.lastName);
-
-      this.profileForm = new FormGroup({
-        firstName: firstName,
-        lastName: lastName
-      })
-    }
-
-    save(formValues: any) {
-      this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
-      this.router.navigate(['events']);
-    }
-
-    cancel() {
-      this.router.navigate(['events']);
-    }
+  constructor(private authService: AuthService, private router: Router) {    
   }
+
+  ngOnInit() {
+    let firstName = new FormControl(this.authService.currentUser.firstName);
+    let lastName = new FormControl(this.authService.currentUser.lastName);
+
+    this.profileForm = new FormGroup({
+      firstName: firstName,
+      lastName: lastName
+    })
+  }
+
+  save(formValues: any) {
+    this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
+    this.router.navigate(['events']);
+  }
+
+  cancel() {
+    this.router.navigate(['events']);
+  }
+}
