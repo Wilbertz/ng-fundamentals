@@ -6,5 +6,5 @@ import { ISession } from '../shared/index'
     templateUrl: './session-list.component.html'
 })
 export class SessionListComponent {
-    @Input() sessions!: ISession[] | null;
+    @Input() sessions!: ISession[] | undefined;
 }
