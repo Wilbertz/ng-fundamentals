@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { EventService } from '../shared/event.service'
-import { IEvent } from '../shared/index'
+import { IEvent, ISession } from '../shared/index'
 import { ActivatedRoute } from '@angular/router'
 
 @Component({
@@ -29,5 +29,21 @@ export class EventDetailsComponent {
 
     addSession() {
         this.addMode = true;
+    }
+
+    saveNewSession(session: ISession) {
+        let nextId : number = 0;
+        if (this.event !== undefined) {
+            let sessions: ISession[] = this.event.sessions;
+            nextId = Math.max.apply(null, this.event?.sessions?.map(s => s.id));
+        }
+        session.id = nextId + 1;
+        this.event?.sessions.push(session);
+        this.eventService.updateEvent(this.event);
+        this.addMode = false;
+    }
+
+    cancelAddSession() {
+        this.addMode = false;
     }
 }
