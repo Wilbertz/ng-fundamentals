@@ -8,11 +8,14 @@ import { ActivatedRoute } from '@angular/router'
     styles: [` 
         .container { padding-left: 20px, padding-right: 20px; }
         .event-image { height: 100px; }
+        a { cursor: pointer; }
     `]
 })
 export class EventDetailsComponent {
 
     event: IEvent | undefined;
+    addMode: boolean = false;
+
     constructor(
         private eventService: EventService,
         private route: ActivatedRoute) {
@@ -22,5 +25,9 @@ export class EventDetailsComponent {
     ngOnInit() {
         this.event = this.eventService.getEvent(
             +this.route.snapshot.params['id']);
+    }
+
+    addSession() {
+        this.addMode = true;
     }
 }
