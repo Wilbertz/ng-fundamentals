@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { EventService } from '../shared/event.service'
 import { IEvent, ISession } from '../shared/index'
 import { ActivatedRoute } from '@angular/router'
@@ -11,10 +11,11 @@ import { ActivatedRoute } from '@angular/router'
         a { cursor: pointer; }
     `]
 })
-export class EventDetailsComponent {
+export class EventDetailsComponent implements OnInit {
 
     event: IEvent | undefined;
     addMode: boolean = false;
+    filterBy: string = "all";
 
     constructor(
         private eventService: EventService,
