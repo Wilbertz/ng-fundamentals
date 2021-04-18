@@ -58,9 +58,10 @@ declare var $: any;
       provide: TOASTR_TOKEN, 
       useValue: toastr
     },
-   /*  {
-      provide: JQ_TOKEN, useValue: $ },
-    }, */
+    {
+      provide: JQ_TOKEN, 
+      useValue: $
+    },
     EventRouteActivator,
     {
       provide: 'canDeactivateCreateEvent',
