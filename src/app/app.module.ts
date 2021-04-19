@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//import * as $ from 'jquery';
 
 import {
   EventsListComponent,
@@ -23,7 +24,8 @@ import {
     TOASTR_TOKEN, 
     Toastr, 
     CollapsibleWellComponent, 
-    SimpleModalComponent } from './common/index'
+    SimpleModalComponent,
+    ModalTriggerDirective } from './common/index'
 import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
 import { AuthService } from './user/auth.service'
@@ -50,7 +52,8 @@ declare var $: any;
     SessionListComponent,
     CollapsibleWellComponent,
     SimpleModalComponent,
-    DurationPipe
+    DurationPipe,
+    ModalTriggerDirective
   ],
   providers: [
     EventService, 
