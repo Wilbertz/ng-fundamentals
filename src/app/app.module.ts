@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//import * as $ from 'jquery';
 
 import {
   EventsListComponent,
@@ -14,6 +13,8 @@ import {
   EventsListResolver,
   CreateSessionComponent,
   SessionListComponent,
+  UpvoteComponent,
+  VoterService,
   DurationPipe
 } from './events/index';
 
@@ -52,6 +53,7 @@ declare var $: any;
     SessionListComponent,
     CollapsibleWellComponent,
     SimpleModalComponent,
+    UpvoteComponent,
     DurationPipe,
     ModalTriggerDirective
   ],
@@ -71,7 +73,8 @@ declare var $: any;
       useValue: checkDirtyState
     },
     EventsListResolver,
-    AuthService
+    AuthService,
+    VoterService
   ],
   bootstrap: [EventsAppComponent]
 })
