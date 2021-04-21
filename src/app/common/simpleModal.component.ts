@@ -26,9 +26,13 @@ declare var $: any;
 export class SimpleModalComponent {
     @Input() title!: string;
     @Input() elementId!: string;
+    @Input() closeOnBodyClick!: string;
+
     @ViewChild('modalContainer') containerEl!: ElementRef;
     
     closeModal() {
-        $(this.containerEl.nativeElement).modal('hide');
+        if (this.closeOnBodyClick.toLocaleLowerCase() === "true") {
+            $(this.containerEl.nativeElement).modal('hide');
+        }
     }
 }
