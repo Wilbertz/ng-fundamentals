@@ -15,6 +15,7 @@ import {
   SessionListComponent,
   UpvoteComponent,
   VoterService,
+  LocationValidator,
   DurationPipe
 } from './events/index';
 
@@ -55,7 +56,8 @@ declare var $: any;
     SimpleModalComponent,
     UpvoteComponent,
     DurationPipe,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    LocationValidator
   ],
   providers: [
     EventService, 
@@ -74,7 +76,7 @@ declare var $: any;
     },
     EventsListResolver,
     AuthService,
-    VoterService
+    VoterService,
   ],
   bootstrap: [EventsAppComponent]
 })
