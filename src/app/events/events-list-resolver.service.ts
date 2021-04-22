@@ -9,7 +9,11 @@ export class EventsListResolver implements Resolve<any> {
     constructor(private eventService: EventService) {      
     }
 
-    resolve() {
+    resolveOld() {
         return this.eventService.getEvents().pipe(map(events => events));
+    }
+
+    resolve() {
+        return this.eventService.getEvents().subscribe();
     }
 }
